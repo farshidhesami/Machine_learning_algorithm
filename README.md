@@ -1,32 +1,55 @@
-
-## Dataset Description
-
-### Boston Housing Dataset:
-
-- The Boston Housing Dataset is a widely used dataset in machine learning and predictive analytics. It contains housing information for various neighborhoods in Boston. This dataset contains information collected by the U.S. Census Service concerning housing in the area of Boston, Massachusetts. The dataset has 506 rows, each representing a different house in the area. 
-- There are 14 columns, each representing a different aspect of the houses and their surroundings. Following is the details of the columns:
-
-### Features : 
-
-- 1. CRIM             - per capita crime rate by town
-- 2. ZN               - proportion of residential land zoned for lots over 25,000 sq.ft.
-- 3. INDUS            - proportion of non-retail business acres per town.
-- 4. CHAS             - Charles River dummy variable (1 if tract bounds river; 0 otherwise)
-- 5. NOX              - nitric oxides concentration (parts per 10 million)
-- 6. RM               - average number of rooms per dwelling
-- 7. AGE              - proportion of owner-occupied units built prior to 1940
-- 8. DIS              - weighted distances to five Boston employment centres
-- 9. RAD              - index of accessibility to radial highways
-- 10. TAX             - full-value property-tax rate per 10,000 dollars.
-- 11. PTRATIO         - pupil-teacher ratio by town
-- 12. B               - 1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
-- 13. LSTAT           - % lower status of the population
-- 14. MEDV            - Median value of owner-occupied homes in 1000's dollars
-
-
-### Target Variable:
-
-MEDV: Median value of owner-occupied homes in $1000s
+## Training Machine Learning Algorithm ## 
 
 
 
+## CO2 emissions canada 2023 Prediction ##
+
+Working on a regression problem using various machine learning models to predict " CO2 emissions canada 2023 " based on features such as engine size, fuel consumption, and cylinders. Here's a breakdown of the code you provided:
+
+1. Importing libraries:
+   - Pandas: for data manipulation and analysis
+   - NumPy: for numerical operations
+   - Matplotlib: for data visualization
+   - Seaborn: for statistical data visualization
+   - Various modules from scikit-learn: for machine learning algorithms and evaluation metrics
+
+2. Loading the dataset:
+   - The dataset is loaded from a CSV file called 'FuelConsumption2023.csv' using `pd.read_csv()`.
+   - The columns of interest are selected and stored in the 'df' DataFrame.
+
+3. Data exploration:
+   - Dataset dimensions are printed using `df.shape`.
+   - The first few rows of the dataset are displayed using `df.head()`.
+   - Data types of each column are printed using `df.dtypes`.
+   - The number of missing values in each column is displayed using `df.isnull().sum()`.
+   - Summary statistics of numerical columns are printed using `df.describe()`.
+   - Unique values in categorical columns (if any) are displayed using a loop.
+
+4. Data preprocessing:
+   - Missing values are dropped from the dataset using `df.dropna()`.
+   - One-hot encoding is performed on categorical columns (if any) using `pd.get_dummies()`.
+   - Feature scaling or normalization is performed on the encoded dataset using `MinMaxScaler()`.
+
+5. Data visualization:
+   - The distribution of numeric columns is visualized using histograms and KDE plots with the help of `sns.histplot()`.
+   - Relationships between variables are visualized using scatter plots with regression lines using `sns.regplot()`.
+
+
+6. Model training and evaluation:
+   - Selected features and target variable are assigned to 'X' and 'y', respectively.
+   - The data is split into training and testing sets using `train_test_split()`.
+   - Several regression models are trained on the training set and evaluated on the testing set:
+     - Linear Regression (LR)
+     - Support Vector Regression (SVR)
+     - Multilayer Perceptron (MLP)
+     - Decision Tree (Regression)
+     - Random Forest
+     - Gradient Boosting (GB)
+     - K-Nearest Neighbors (KNN)
+   - Evaluation metrics (MSE and R-squared) are calculated using `mean_squared_error()` and `r2_score()`.
+   - Scatter plots of actual vs predicted values are plotted using `plt.scatter()`.
+
+7. Model tuning:
+   - Hyperparameter grids for each model are defined.
+   - Grid search is performed for each model using `GridSearchCV()` to find the best hyperparameters.
+   - Tuned models are evaluated and scatter plots of actual vs predicted values are plotted.
