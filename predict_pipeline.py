@@ -1,27 +1,25 @@
-import requests
-import json
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression
+import numpy as np
 
-# Define the input data
-data = {
-    'enginesize': 2.0,
-    'fuelconsumption_city': 9.5,
-    'cylinders': 4
-}
+# Load the dataset from a CSV file
+df = pd.read_csv('FuelConsumption2023.csv', encoding='latin-1')
 
-# Set the Content-Type header to 'application/json'
-headers = {'Content-Type': 'application/json'}
+# Select specific columns of interest
+df = df[['ENGINESIZE', 'CYLINDERS', 'FUELCONSUMPTION_CITY', 'CO2EMISSIONS']]
 
-# Send a POST request to the predict route
-try:
-    response = requests.post('http://127.0.0.1:5000/predict', json=data, headers=headers)
+# Data preprocessing
+df.dropna(inplace=True)
+scaler = MinMaxScaler()
+df_scaled = pd.DataFrame(scaler.fit_transform(df), columns=df.columns)
 
-    # Check the response status code
-    if response.status_code == 200:
-        # Print the predicted CO2 emission
-        print(response.json()['predicted_co2'])
-    else:
-        # Handle other status codes
-        print('Error:', response.text)
+# Train the model
+model = LinearRegression()
+X = df_scaled[['ENGINESIZE', 'CYLINDERS', 'FUELCONSUMPTION_CITY']]
+y = df_scaled['CO2EMISSIONS']
+model.fit(X, y)
 
-except requests.exceptions.RequestException as e:
-    print('Error:', e)
+# Save the trained model
+# We can uncomment the following line to save the model if needed
+# model.save('co2_emission_model.pkl')

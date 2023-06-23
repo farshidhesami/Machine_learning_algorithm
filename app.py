@@ -15,7 +15,7 @@ app = Flask(__name__)
 df = pd.read_csv('FuelConsumption2023.csv', encoding='latin-1')
 
 # Select specific columns of interest
-df = df[['ENGINESIZE', 'CYLINDERS', 'FUELCONSUMPTION_CITY', 'FUELCONSUMPTION_HWY', 'FUELCONSUMPTION_COMB', 'CO2EMISSIONS']]
+df = df[['ENGINESIZE', 'CYLINDERS', 'FUELCONSUMPTION_CITY', 'CO2EMISSIONS']]
 
 # Data preprocessing
 df.dropna(inplace=True)
@@ -54,11 +54,13 @@ def predict():
         return render_template('index.html', error=error)
 
 if __name__ == '__main__':
+    
     # Load the pre-trained model
     model = LinearRegression()
     X = df_scaled[['ENGINESIZE', 'CYLINDERS', 'FUELCONSUMPTION_CITY']]
     y = df_scaled['CO2EMISSIONS']
     model.fit(X, y)
+
 
     # Run the Flask application
     app.run(debug=True)

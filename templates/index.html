@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flask App</title>
+    <title>CO2 Emission Prediction - Result</title>
 </head>
 <body>
-    <h1>Flask App</h1>
-    <form action="/predict" method="post">
-        <label for="enginesize">Engine Size:</label>
-        <input type="text" id="enginesize" name="ENGINESIZE"><br><br>
-
-        <label for="fuelconsumption_city">Fuel Consumption (City):</label>
-        <input type="text" id="fuelconsumption_city" name="FUELCONSUMPTION_CITY"><br><br>
-
-        <label for="cylinders">Cylinders:</label>
-        <input type="text" id="cylinders" name="CYLINDERS"><br><br>
-
-        <input type="submit" value="Predict">
-    </form>
-
-    {% if result %}
-        <h2>Prediction Result:</h2>
-        <p>CO2 Emissions: {{ result }}</p>
+    <h1>CO2 Emission Prediction - Result</h1>
+    {% if predicted_co2 %}
+        <p>Predicted CO2 Emission: {{ predicted_co2 }}</p>
     {% endif %}
-
     {% if error %}
-        <p style="color: red;">{{ error }}</p>
+        <p>Error: {{ error }}</p>
     {% endif %}
 </body>
 </html>
