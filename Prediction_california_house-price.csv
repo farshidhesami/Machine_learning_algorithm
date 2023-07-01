@@ -1,9 +1,10 @@
 Metric,Value
 Best Parameters,"{'max_depth': 10, 'min_samples_split': 6}"
-Best Score,0.7040847220313665
-Cross-Validation Mean RMSE,62883.98332794967
-Mean Squared Error (MSE),3717577424.9841304
-Root Mean Squared Error (RMSE),60971.93965246743
-Mean Absolute Error (MAE),40682.87529569937
-R2 Score,0.716304032808549
-Prediction for New Data,381500.0
+Best Score,0.6692098642773405
+Cross-Validation Mean Score,0.6686647217724907
+Accuracy,0.6875
+Precision,0.6964388097100931
+Recall,0.6875
+F1 Score,0.6903063637318138
+Prediction for New Data,3
+Probability Estimates for New Data,[0. 0. 0. 1.]
