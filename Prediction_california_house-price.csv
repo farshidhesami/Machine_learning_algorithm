@@ -1,10 +1,10 @@
 Metric,Value
-Best Parameters,"{'max_depth': 10, 'min_samples_split': 6}"
-Best Score,0.6692098642773405
-Cross-Validation Mean Score,0.6686647217724907
-Accuracy,0.6875
-Precision,0.6964388097100931
-Recall,0.6875
-F1 Score,0.6903063637318138
+Best Parameters,"{'max_depth': 10, 'min_samples_split': 4}"
+Best Score,0.6689071275438716
+Cross-Validation Mean Score,0.6680591199418036
+Accuracy,0.6877422480620154
+Precision,0.6967282592932921
+Recall,0.6877422480620154
+Prediction for New Data,3
 Prediction for New Data,3
 Probability Estimates for New Data,[0. 0. 0. 1.]
